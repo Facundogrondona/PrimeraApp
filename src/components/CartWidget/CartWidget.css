@@ -1,0 +1,11 @@
+.CartWPadre{
+ display: flex;
+ align-items: center;
+}
+
+.CartW{
+    width: 80px;
+    margin-left: 3%;
+    margin-right: 4%;
+    padding-right: 2%;
+}
