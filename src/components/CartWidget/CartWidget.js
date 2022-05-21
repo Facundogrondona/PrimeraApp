@@ -1,10 +1,10 @@
 import './CartWidget.css';
 
-const CartWidget = () => {
+const CartWidget = (props) => {
     return (
         <div className='CartWPadre'>
             <img className='CartW' src='/img/logoNavBar.png' alt='cart-widget'  />
-            <h3>5</h3>
+            <h3>props</h3>
         </div>
     )
 }
