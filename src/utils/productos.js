@@ -4,7 +4,7 @@ const productos = [
         nombre: 'Bowl de aguacate',
         receta: 'Receta refrescante y llena de vitaminas para su desayuno.',
         precio: 350,
-        imagen:  'https://picsum.photos/200/300/?random',
+        imagen:  './img/recetas/bowl-de-aguacate.jpg',
         stock: 10
     },
     {
@@ -12,7 +12,7 @@ const productos = [
         nombre: 'Ensalada de kiwi',
         receta: 'Receta refrescante y llena de vitaminas para su desayuno.',
         precio: 200,
-        imagen: 'https://picsum.photos/200/300/?random',
+        imagen: './img/recetas/ensalada-de-kiwi.jpg',
         stock: 0
     },
     {
@@ -20,7 +20,7 @@ const productos = [
         nombre: 'Mix de vegetales',
         receta: 'Receta refrescante y llena de vitaminas para su desayuno.',
         precio: 300,
-        imagen: 'https://picsum.photos/200/300/?random',
+        imagen: './img/recetas/mix-de-vegetales.jpg',
         stock: 5
     },
     {
@@ -28,7 +28,7 @@ const productos = [
         nombre: 'Pimentones a la Juliana',
         receta: 'Receta refrescante y llena de vitaminas para su desayuno.',
         precio: 300,
-        imagen: 'https://picsum.photos/200/300/?random',
+        imagen: './img/recetas/pimentones-a-la-juliana.jpg',
         stock: 15
     },
     {
@@ -36,7 +36,7 @@ const productos = [
         nombre: 'Plato oriental',
         receta: 'Receta refrescante y llena de vitaminas para su desayuno.',
         precio: 400,
-        imagen: 'https://picsum.photos/200/300/?random',
+        imagen: './img/recetas/plato-oriental.jpg',
         stock: 3
     },
     {
@@ -44,7 +44,7 @@ const productos = [
         nombre: 'Remolachas horneadas',
         receta: 'Receta refrescante y llena de vitaminas para su desayuno.',
         precio: 380,
-        imagen: 'https://picsum.photos/200/300/?random',
+        imagen: './img/recetas/remolachas-horneadas.jpg',
         stock: 8
     }
 ]

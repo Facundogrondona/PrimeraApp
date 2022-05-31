@@ -1,4 +1,5 @@
-import ItemCount from '../ItemCount/ItemCount';
+
+import { Link } from 'react-router-dom';
 import './Item.css'
 
 function Item({id, nombre, receta, precio, imagen, stock}) {
@@ -7,10 +8,9 @@ function Item({id, nombre, receta, precio, imagen, stock}) {
     <img  className="receta__imagen" src={imagen} alt={nombre} />
     <div className="receta__contenido">
         <h4 className="receta__titulo">{nombre}</h4>
-        <p className="receta__descripcion">{receta}</p>
         <h4 className="receta__titulo">$ {precio}</h4>
         <h4 className="receta__titulo">Disponibles {stock}</h4>
-        <ItemCount stock={stock} />
+        <Link to={`/detail/${id}`} className="receta__boton" >Detalle de la Receta</Link>
     </div>
 </div>
 
