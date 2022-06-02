@@ -6,4 +6,4 @@ const customFetch = (time, task) =>{
     });
 }
 
-export default customFetch;
+export default customFetch

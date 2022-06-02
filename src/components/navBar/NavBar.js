@@ -1,6 +1,6 @@
 import CartWidget from '../CartWidget/CartWidget';
 import './NavBar.css';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const NavBar =() => {
     return (
@@ -11,11 +11,12 @@ const NavBar =() => {
 			</h1>
 
 			<nav className="headerPrincipal-nav">
-				<navLink to='/' className="headerPrincipal-nav-link" >Home </navLink>
-				<a className="headerPrincipal-nav-link" href='/#'>Nuetras Viandas</a>
-				<a className="headerPrincipal-nav-link" href='/#'>Quienes somos</a>
-				<a className="headerPrincipal-nav-link" href='/#'>Contactos</a>
-				<a className="headerPrincipal-nav-link headerPrincipal-nav-link-app" href='/#'>Loging</a>
+				<NavLink to='/' className="headerPrincipal-nav-link" >Home </NavLink>
+				
+				<NavLink to='/category/principal' className="headerPrincipal-nav-link">Platos principales</NavLink>
+				<NavLink to='/category/postres' className="headerPrincipal-nav-link">Postres</NavLink>
+				<NavLink to='/about' className="headerPrincipal-nav-link">Contacto</NavLink>
+				<NavLink to='/about' className="headerPrincipal-nav-link">Loging</NavLink>
 			</nav>
             <CartWidget/>
 		</div>  

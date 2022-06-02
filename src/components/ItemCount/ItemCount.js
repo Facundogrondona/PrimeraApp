@@ -1,35 +1,28 @@
 import React, { useState } from 'react'
 import './ItemCount.css';
 
-function ItemCount({stock}) {
-    const [count, setCount] = useState(0);
+function ItemCount({stock= 0, initial = 1, onAdd}) {
+    const [quantity, setCount] = useState(initial);
 
     function adding () {
-        if(count < stock) {
-            setCount(count + 1);
+        if(quantity < stock) {
+            setCount(quantity + 1);
         }
     }
     function subs () {
-        if(count > 0) {
-            setCount(count - 1);
+        if(quantity > 0) {
+            setCount(quantity - 1);
         }
     }
 
-    function onAdd () {
-        if(count <=0) { alert("You didn't add any item")
-        }else {
-        alert('You added ' + count + ' items to your cart');
-        }
-    }
-    
   return (
     <div>
         <div className="countContainer">
             <button onClick={subs} className="danger" >-</button>
-            <p className="contador">{count}</p>
+            <p className="contador">{quantity}</p>
             <button onClick={adding} className="success">+</button>
         </div>
-        <button onClick={onAdd} className="addProduct">Comprar</button>
+        <button onClick={() => onAdd(quantity)} className="addProduct">Agregar al carrito</button>
     </div>
   )
 }

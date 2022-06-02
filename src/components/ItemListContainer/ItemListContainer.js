@@ -1,26 +1,51 @@
-import React, { useEffect, useState } from 'react';
-import customFetch from '../../utils/CustomFetch';
-import productos from '../../utils/productos';
-import ItemList from '../ItemList/ItemList';
 import './ItemListContainer.css'
+import React, { useEffect, useState } from 'react'
+import { getProducts, getProductsByCategory } from '../../utils/asyncromck'
+import { useParams } from 'react-router-dom'
+import ItemList from '../ItemList/ItemList'
 
+const ItemListContainer = ({ greeting }) => {
+  const [products, setProducts] = useState([])
+  const [loading, setLoading] = useState(true)
 
-function ItemListContainer() {
-    const [items, setItems] = useState([]);
-    console.log(items);
-    useEffect(() => {
-        customFetch(1000, productos)
-        .then(resultado => setItems(resultado))
-        
-    }, []);
+  const { categoryId } = useParams()
 
-    console.log(items);
+  useEffect(() => {
+      setLoading(true)
+
+      if(!categoryId) {
+          getProducts().then(response => {
+              setProducts(response)
+          }).catch(error => {
+              console.log(error)
+          }).finally(() => {
+              setLoading(false)
+          })
+      } else {
+          getProductsByCategory(categoryId).then(response => {
+              setProducts(response)
+          }).catch(error => {
+              console.log(error)
+          }).finally(() => {
+              setLoading(false)
+          })
+      }
+  }, [categoryId])
+
+  if(loading) {
+      return <h1>Loading...</h1>
+  }
 
   return (
     <section className="recetas">
-      <ItemList productos={items} />
+      <h1>{ greeting }</h1>
+            { 
+                products.length > 0 
+                    ? <ItemList products={products} />
+                    : <h2>No hay productos</h2>
+                }
       
-      </section>
+    </section>
     
   )
 }

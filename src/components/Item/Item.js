@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 import './Item.css'
 
-function Item({id, nombre, receta, precio, imagen, stock}) {
+function Item({id, nombre, precio, imagen, stock}) {
   return (
     <div className="receta" key={id}>
     <img  className="receta__imagen" src={imagen} alt={nombre} />
