@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import './ItemCount.css';
 
-function ItemCount({stock= 0, initial = 1, onAdd}) {
+const ItemCount = ({stock= 0, initial = 1, onAdd}) => {
     const [quantity, setCount] = useState(initial);
 
-    function adding () {
+    const adding = () =>{
         if(quantity < stock) {
             setCount(quantity + 1);
         }
     }
-    function subs () {
+    const subs = () => {
         if(quantity > 0) {
             setCount(quantity - 1);
         }

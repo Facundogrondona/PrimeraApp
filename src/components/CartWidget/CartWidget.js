@@ -8,13 +8,12 @@ const CartWidget = () => {
 
     const quantity = getQuantity()
     
-    
     return (
-        <Link className='CartWPadre'>
+        <Link to='/cart' className='CartWPadre'>
             <img className='CartW' src='/img/logoNavBar.png' alt='cart-widget'  />
             { quantity }
         </Link>
-    )
+    );
 }
 
 export default CartWidget

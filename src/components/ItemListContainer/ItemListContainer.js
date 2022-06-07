@@ -1,8 +1,10 @@
 import './ItemListContainer.css'
 import React, { useEffect, useState } from 'react'
-import { getProducts, getProductsByCategory } from '../../utils/asyncromck'
+import { getProducts } from '../../utils/asyncromck'
+import { getProductsByCategory } from '../../utils/asyncromck'
 import { useParams } from 'react-router-dom'
 import ItemList from '../ItemList/ItemList'
+import Spiner from '../Spiner/Spiner'
 
 const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([])
@@ -33,20 +35,18 @@ const ItemListContainer = ({ greeting }) => {
   }, [categoryId])
 
   if(loading) {
-      return <h1>Loading...</h1>
+      return <Spiner />
   }
 
   return (
     <section className="recetas">
-      <h1>{ greeting }</h1>
             { 
                 products.length > 0 
                     ? <ItemList products={products} />
                     : <h2>No hay productos</h2>
                 }
       
-    </section>
-    
+    </section> 
   )
 }
 

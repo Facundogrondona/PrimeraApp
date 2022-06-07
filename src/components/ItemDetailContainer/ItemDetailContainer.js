@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './ItemDetailContainer.css'
-import ItemDetail from '../ItemDetail/ItemDetails'
+import ItemDetail from '../ItemDetail/ItemDetail'
 import { getProductsById } from '../../utils/asyncromck'
+import Spiner from '../Spiner/Spiner.js'
+
 
 
 const ItemDetailContainer = () => {
@@ -20,7 +22,8 @@ const ItemDetailContainer = () => {
     }, [productId])
 
     if(loading) {
-        return <h1>Cargando...</h1>
+        return  <Spiner/>
+        
     }
 
     return(

@@ -2,9 +2,9 @@
 import { Link } from 'react-router-dom';
 import './Item.css'
 
-function Item({id, nombre, precio, imagen, stock}) {
+const Item =({id, nombre, precio, imagen, stock}) => {
   return (
-    <div className="receta" key={id}>
+    <div className="receta">
     <img  className="receta__imagen" src={imagen} alt={nombre} />
     <div className="receta__contenido">
         <h4 className="receta__titulo">{nombre}</h4>
@@ -13,7 +13,6 @@ function Item({id, nombre, precio, imagen, stock}) {
         <Link to={`/detail/${id}`} className="receta__boton" >Detalle de la Receta</Link>
     </div>
 </div>
-
   )
 }
 
