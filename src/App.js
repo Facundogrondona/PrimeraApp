@@ -7,6 +7,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import Cart from './components/Cart/Cart';
 import {BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CartContextProvider } from './context/CartContext';
+import { NotificationProvider } from './notification/Notification';
 
 
 
@@ -14,19 +15,21 @@ const App = () => {
   return (
     <div className="App">
      <CartContextProvider>
-        <BrowserRouter>
-          <NavBar />
-          <Banner />
-          <Sobre />
-            <Routes>
-                <Route path='/' element={<ItemListContainer greeting="Todas Nuestras Espacialidades" />}/>
-                <Route path='/category/:categoryId' element={<ItemListContainer greeting="Platos filtrados por categoria" />}/>
-                <Route path='/detail/:productId' element={<ItemDetailContainer />}/>
-                <Route path='/about' element={<h1>About</h1>}/>
-                <Route path='/cart' element={<Cart />}/>
-                <Route path='*' element={<h1>PAGE NOT FOUND 404</h1>} />
-            </Routes>
-        </BrowserRouter>
+      <NotificationProvider>
+          <BrowserRouter>
+            <NavBar />
+            <Banner />
+            <Sobre />
+              <Routes>
+                  <Route path='/' element={<ItemListContainer greeting="Todas Nuestras Espacialidades" />}/>
+                  <Route path='/category/:categoryId' element={<ItemListContainer greeting="Platos filtrados por categoria" />}/>
+                  <Route path='/detail/:productId' element={<ItemDetailContainer />}/>
+                  <Route path='/about' element={<h1>About</h1>}/>
+                  <Route path='/cart' element={<Cart />}/>
+                  <Route path='*' element={<h1>PAGE NOT FOUND 404</h1>} />
+              </Routes>
+          </BrowserRouter>
+        </NotificationProvider>
       </CartContextProvider>
     </div>
   );

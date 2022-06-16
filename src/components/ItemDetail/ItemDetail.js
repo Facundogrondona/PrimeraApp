@@ -3,19 +3,22 @@ import './ItemDetail.css'
 import { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import CartContext from '../../context/CartContext'
+import { useNotification } from '../../notification/Notification'
 
 const ItemDetail = ({id, nombre, receta, precio, imagen, category, stock}) => {
   const [quantity, setQuantity] = useState(0)
-  
-  const { addItem, getProduct } = useContext(CartContext)
-  
-  const handleOnAdd = (quantity) => {
-    console.log('agregue al carrito')
-    console.log(quantity)
-    setQuantity(quantity)
 
-    addItem({ id, nombre, precio, quantity })
-  }
+    const { setNotification } = useNotification()
+
+    const { addItem, getProduct } = useContext(CartContext)
+
+
+    const handleOnAdd = (quantity) => {
+        setQuantity(quantity)
+        setNotification('success', 'Se agrego correctamente al carrito')
+        addItem({ id, nombre, precio, quantity })
+    }
+    
     return (
       <div className="receta">
         <img  className="receta__imagen" src={imagen} alt={nombre} />
